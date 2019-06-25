@@ -4,18 +4,24 @@
 #
 Name     : mvn-mvnplugins
 Version  : 1.9
-Release  : 1
-URL      : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
-Source0  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
-Source1  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
-Source2  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
+Release  : 2
+URL      : https://github.com/chirino/mvnplugins/archive/mvnplugins-1.9.tar.gz
+Source0  : https://github.com/chirino/mvnplugins/archive/mvnplugins-1.9.tar.gz
+Source1  : https://repo1.maven.org/maven2/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
+Source2  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
+Source3  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
+Source4  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-mvnplugins-data = %{version}-%{release}
 
 %description
-No detailed description available
+[MVN Plugins][1]
+================
+Description
+-----------
+MVN Plugins holds a handy collection of maven plugins.
 
 %package data
 Summary: data components for the mvn-mvnplugins package.
@@ -30,14 +36,17 @@ data components for the mvn-mvnplugins package.
 %build
 
 %install
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
-cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9
 
 
 %files
@@ -45,6 +54,7 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugi
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
 /usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
 /usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
 /usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
