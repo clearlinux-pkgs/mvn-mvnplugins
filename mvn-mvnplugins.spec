@@ -4,7 +4,7 @@
 #
 Name     : mvn-mvnplugins
 Version  : 1.9
-Release  : 3
+Release  : 4
 URL      : https://github.com/chirino/mvnplugins/archive/mvnplugins-1.9.tar.gz
 Source0  : https://github.com/chirino/mvnplugins/archive/mvnplugins-1.9.tar.gz
 Source1  : https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.9/fusesource-pom-1.9.pom
