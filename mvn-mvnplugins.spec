@@ -4,21 +4,24 @@
 #
 Name     : mvn-mvnplugins
 Version  : 1.9
-Release  : 6
+Release  : 7
 URL      : https://github.com/chirino/mvnplugins/archive/mvnplugins-1.9.tar.gz
 Source0  : https://github.com/chirino/mvnplugins/archive/mvnplugins-1.9.tar.gz
 Source1  : https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.3/fusesource-pom-1.3.pom
-Source2  : https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.9/fusesource-pom-1.9.pom
-Source3  : https://repo1.maven.org/maven2/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
-Source4  : https://repo1.maven.org/maven2/org/fusesource/fusesource-pom/1.5/fusesource-pom-1.5.pom
-Source5  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
-Source6  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
-Source7  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
+Source2  : https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.8/fusesource-pom-1.8.pom
+Source3  : https://repo.maven.apache.org/maven2/org/fusesource/fusesource-pom/1.9/fusesource-pom-1.9.pom
+Source4  : https://repo1.maven.org/maven2/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
+Source5  : https://repo1.maven.org/maven2/org/fusesource/fusesource-pom/1.5/fusesource-pom-1.5.pom
+Source6  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
+Source7  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
+Source8  : https://repo1.maven.org/maven2/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-mvnplugins-data = %{version}-%{release}
 Requires: mvn-mvnplugins-license = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 [MVN Plugins][1]
@@ -54,23 +57,26 @@ cp license.txt %{buildroot}/usr/share/package-licenses/mvn-mvnplugins/license.tx
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.3
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.3/fusesource-pom-1.3.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.8
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.8/fusesource-pom-1.8.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.9
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.9/fusesource-pom-1.9.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.9/fusesource-pom-1.9.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.5
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.5/fusesource-pom-1.5.pom
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.5/fusesource-pom-1.5.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9
-cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugins/mvnplugins/1.9/mvnplugins-1.9.pom
 
 
 %files
@@ -81,6 +87,7 @@ cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/org/fusesource/mvnplugi
 /usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.11/fusesource-pom-1.11.pom
 /usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.3/fusesource-pom-1.3.pom
 /usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.5/fusesource-pom-1.5.pom
+/usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.8/fusesource-pom-1.8.pom
 /usr/share/java/.m2/repository/org/fusesource/fusesource-pom/1.9/fusesource-pom-1.9.pom
 /usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.jar
 /usr/share/java/.m2/repository/org/fusesource/mvnplugins/fuse-jxr-skin/1.9/fuse-jxr-skin-1.9.pom
